@@ -1,0 +1,84 @@
+
+.labelBox {
+
+	background: #26ca28; 
+	-webkit-transition: background 0.3s;
+	-webkit-transition-delay:0.2s;
+	border-radius: 25px;
+	border: 1px solid #555555;
+	width: 54px;
+	position: relative;
+	height: 30px;
+}
+
+.labelBox::before,
+.labelBox::after {
+	padding-left: 9px;
+	line-height: 30px;
+	color: #fff;
+	font-size: 14px;
+	text-shadow: #093b5c 0 -1px 1px;
+}
+.labelBox::after {
+	padding-left: 12px;
+}
+.check { 
+	display: block;
+	width: 28px;
+	height: 28px;
+	border-radius: 20px;
+	background: #fff -webkit-gradient(linear, 0% 0%, 0% 100%, from(#A1A1A1), to(#FFFFFF));
+	border: 1px solid #e5e5e5;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.labelBox input[type=checkbox] {
+	border: 0 none !important;
+	clip: rect(1px,1px,1px,1px);
+	height: 1px !important;
+	overflow: hidden !important;
+	position: absolute !important;
+	width: 1px !important;
+}
+
+@-webkit-keyframes labelON {
+	0% {
+		top: 0px;
+    left: 0px;
+	}
+	
+	100% { 
+		top: 0px;
+    left: 24px;
+	}
+}
+
+@-webkit-keyframes labelOFF {
+	0% {
+		top: 0px;
+    left: 24px;
+	}
+	
+	100% { 
+		top: 0px;
+    left: 0px;
+	}
+}
+
+.labelBox  input[type=checkbox]:checked + label.check {
+	top: 0px;
+	left: 24px;	
+	-webkit-animation: labelON 0.2s ease-in 0s 1;
+	animation: labelON 0.2s ease-in 0s 1;
+    box-shadow: #244766 -1px 0px 3px;
+}
+
+
+.labelBox  input[type=checkbox] + label.check {
+	top: 0px;
+	left: 0px;
+	-webkit-animation: labelOFF 0.2s ease-in 0s 1;
+	animation: labelOFF 0.2s ease-in 0s 1;
+	box-shadow: #244766 1px 0px 3px;		
+}

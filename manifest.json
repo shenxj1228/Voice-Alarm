@@ -1,0 +1,22 @@
+{
+   "background": {
+      "scripts": [ "js/jquery.js", "js/background.js" ]
+   },
+   "browser_action": {
+      "default_icon": "images/48.png"
+   },
+   "description": "定时语音提醒同时弹出提醒框",
+   "icons": {
+      "128": "images/128.png",
+      "16": "images/16.png",
+      "48": "images/48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqC8ZY4e/TIwt91GNDk+H6HvDnbUbbXN5x8kZksoDelKLd5nuygCuxygqPjjtQflzzp230ED9T8oyRJJioFiQRdHDZXpA2yz79qV7i4jKAXBBlt/iwF2W7RPDVZWyCPIT3BsCQJujJd+bGrorx93gc5h4pINykmPZboU7aGubevayLNGUchxZJ2kM3XdMbLgkoWk1NHLJrlhqVs9/Rvr1l2dvZ0+j9DaiQKqihb/jpOlx8/KFjIomOnhMhmUXBJGhE39QKQwHLsB1UeRqgfc9P+lZqdPGvanNVG8j4nBphj7Dmb8e0JQkb6CRRaamy4vVDwEBuRVh4/CpjxTvx2co8wIDAQAB",
+   "manifest_version": 2,
+   "name": "语音闹钟",
+   "options_page": "options.html",
+   "permissions": [ "notifications", "tts", "background", "http://www.google.com.hk/*", "tabs", "https://www.google.com.hk/*" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.1.4",
+   "web_accessible_resources": [ "images/tx.png" ]
+}

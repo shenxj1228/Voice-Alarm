@@ -1,0 +1,78 @@
+﻿<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>设置提醒</title>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/jquery.multiselect.js"></script>
+    <script type="text/javascript" src="js/options.js"></script>
+	<script type="text/javascript" src="js/overlay.js"></script>
+	<script type="text/javascript" src="js/jquery.tooltipster.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/jquery.multiselect.css" />
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="css/slidingbtn.css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="css/tooltipster.css" />
+	<link rel="stylesheet" type="text/css" href="css/gh-buttons.css"/>
+  </head>
+  <body>
+    <h1>
+      <img src="images/64.png" alt="Toast">
+      设置提醒
+    </h1>
+	<form id="options">
+	<div id="is_option">
+    <h2>是否启用提醒</h2>
+	    <section title=".slideThree">
+		<!-- .slideThree -->
+			<div class="slideThree">
+				<input type="checkbox" value="None" name="isActivated" id="slideThree" name="check" checked />
+				<label for="slideThree"></label>
+			</div>
+		<!-- end .slideThree -->
+		</section>
+	<h2>是否启用语音</h2>
+	    <section title="是否启用语音" >
+		<!-- .slideThree -->
+			<div class="slideThree">
+				<input type="checkbox" value="None" name="isSpeak" id="tts" name="check" checked />
+				<label for="tts"></label>
+			</div>
+		<!-- end .slideThree -->
+		</section>
+	<h2>弹窗语音提醒</h2>
+	<a class="button" style="margin-left:20px;" id="testbtn" name="testbtn">观看样式</a>
+	</div>
+	<h2 class="cr-title" >提醒列表<div style="float:right"><a href="#" class="ketchup tooltip" id='up_down' title="上移"><image   src="images/arrow_up.png" /></a></div></h2>
+	<div name="btndiv" class="button-group minor-group" style="margin-bottom:5px;">
+	<a class="button" style="margin-left:40px;" id="addbtn" name="addbtn">增  加</a>
+	<a class="button danger"  name="delbtn">删  除</a>
+	<a class="button"  name="inportbtn">导  入</a>
+	<a class="button"  name="exportbtn">导  出</a>
+	<a style="position:absolute;right:15px;color:red;" target="_blank"  href="http://www.google.com.hk" name="connect_google"  ></a>
+	</div>
+	<div id="tip" style="display:none;filter:alpha(opacity=100);opacity:1;">
+	<b  id="tipinfo"></b>
+	</div>
+	<div id="overlay"></div>
+	<div id="dialog">
+	<!--<p><a  id="close" href="#"><b>关闭</b></a></p>
+	<div ><textarea id="inportcontent" rows=14 >请在此帖入配置文件内容，请不要不多也不要少</textarea ></div> 
+	<div class="okdiv"><a class="small button magenta" id="ok" href="#">提交</a></div>-->
+	</div> 
+	<table class="bordered" name="remindTab" id="remindTab">
+	<thead>
+    <tr>
+        <th width="20"><a class="divCheckBoxNoSel"  id ="checkAllSel"></a></th>
+		<th style="text-align:center;width:80px;" >稍后提醒</th>
+        <th style="text-align:center;width:265px;" >提醒时间</th>
+		<th style="text-align:center;width:250px;">提醒标题</th>
+        <th style="text-align:center;width:250px;">提醒内容</th>
+		<th style="text-align:center;">提醒链接地址</th>
+    </tr>
+
+    </thead>
+	</table>
+    </form>
+  </body>
+</html>
