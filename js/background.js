@@ -138,17 +138,16 @@ function getTimeString(hh, mm) {
 //修改状态
 function updatestate(xh) {
 	var transaction = myDB.db.transaction(storeName, 'readwrite');
-    var store = transaction.objectStore(storeName);
-    var request = store.get(xh);
-    request.onsuccess = function(e) {
-        var remindinfo = e.target.result;
-        remindinfo.state = false;
-        store.put(remindinfo);
+	var store = transaction.objectStore(storeName);
+	var request = store.get(xh);
+	request.onsuccess = function (e) {
+		var remindinfo = e.target.result;
+		remindinfo.state = false;
+		store.put(remindinfo);
 		reloadOptionHtml('/options.html');
-    };
+	};
 
 }
-
 
 function oninstall() {
 	if (typeof localStorage.version === 'undefined') {
@@ -170,7 +169,7 @@ function ShowNotification(myNotification) {
 	var delayTime = myNotification.delayTime;
 	var re = /^[0-9]*[1-9][0-9]*$/;
 	if (!notifica_id) {
-		chrome.notifications.create('',{
+		chrome.notifications.create('', {
 			type : 'basic',
 			iconUrl : icon,
 			title : title,
@@ -181,12 +180,12 @@ function ShowNotification(myNotification) {
 					if (click_function) {
 						click_function();
 					}
-					chrome.notifications.clear(notificationId,function(){});
+					chrome.notifications.clear(notificationId, function () {});
 				}
 			});
 			if (re.test(delayTime)) {
 				setTimeout(function () {
-					chrome.notifications.clear(notificationId,function(){});
+					chrome.notifications.clear(notificationId, function () {});
 				}, delayTime);
 			}
 		});
@@ -249,7 +248,7 @@ function ts(value, index) {
 	var now = new Date();
 	var PercentTime = (function getPercentTime() {
 		var nowSeconds = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
-		var differenceSeconds = parseInt(value.hour,10) * 3600 + parseInt(value.minute,10) * 60 - nowSeconds;
+		var differenceSeconds = parseInt(value.hour, 10) * 3600 + parseInt(value.minute, 10) * 60 - nowSeconds;
 		if (differenceSeconds < 0) {
 			differenceSeconds = differenceSeconds + 24 * 3600;
 		}
@@ -359,21 +358,29 @@ window.onload = function () {
 	closeDB(myDB.db);
 	},100); */
 	if (!myDB.db) {
-		openDB(function(){remind();
-		oninstall();
-	setInterval(function () {
-		this.location.reload();
-	}, 3600 * 1000);});
+		openDB(function () {
+			remind();
+			oninstall();
+			setInterval(function () {
+				this.location.reload();
+			}, 3600 * 1000);
+		});
+		if (!localStorage.version) {
+			window.open('./options.html');
+			localStorage.version = true;
+		}
 	} else {
 		remind();
 		oninstall();
-	setInterval(function () {
-		this.location.reload();
-	}, 3600 * 1000);
+		setInterval(function () {
+			this.location.reload();
+		}, 3600 * 1000);
+		if (!localStorage.version) {
+			window.open('./options.html');
+			localStorage.version = true;
+		}
 	}
 	window.clearInterval(); //清除周期性方法
 	chrome.tts.stop(); //取消tts朗读
-	
+
 };
-
-
