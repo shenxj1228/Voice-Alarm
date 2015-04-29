@@ -56,8 +56,6 @@ function openDB(callback) {
 				keyPath : "id"
 			});
 		}
-		if(typeof callback == "function") 
-			callback();
 		console.log('DB version changed to ' + myDB.version);
 	};
 }
@@ -366,11 +364,12 @@ window.onload = function () {
 			setInterval(function () {
 				this.location.reload();
 			}, 3600 * 1000);
-		});
-		if (!localStorage.version) {
+			if (!localStorage.version) {
 			window.open('./options.html');
 			localStorage.version = true;
 		}
+		});
+		
 	} else {
 		remind();
 		oninstall();
